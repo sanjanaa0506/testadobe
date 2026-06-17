@@ -1,1 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+<nav>
+  <button onclick="show('Home Page')">Home</button>
+  <button onclick="show('About Page')">About</button>
+</nav>
 
+<div id="app"></div>
+
+<script>
+function show(text) {
+  document.getElementById('app').innerHTML = `<h2>${text}</h2>`;
+}
+
+show('Home Page');
+</script>
+</body>
+</html>
