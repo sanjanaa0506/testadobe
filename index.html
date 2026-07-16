@@ -1,41 +1,394 @@
 <!DOCTYPE html>
-<html>
-<body>
-  
+<html lang="en">
+
 <head>
-       <script>
-  !function(e,a,n,t){var i=e.head;if(i){
-  if (a) return;
-  var o=e.createElement("style");
-  o.id="alloy-prehiding",o.innerText=n,i.appendChild(o),setTimeout(function(){o.parentNode&&o.parentNode.removeChild(o)},t)}}
-  (document, document.location.href.indexOf("adobe_authoring_enabled") !== -1, ".personalization-container { opacity: 0 !important }", 3000);
-      </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Picasoo & Threads — Handmade & Printed Art</title>
+  <meta name="description" content="Picasoo & Threads creates handmade and printed art — portraits, textile pieces, and fine-art prints — that tell your story.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Work+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 
-
-<script src="datalayer.js" defer ></script>
-
+  <script>
+!function(e,a,n,t){var i=e.head;if(i){
+if (a) return;
+var o=e.createElement("style");
+o.id="alloy-prehiding",o.innerText=n,i.appendChild(o),setTimeout(function(){o.parentNode&&o.parentNode.removeChild(o)},t)}}
+(document, document.location.href.indexOf("adobe_authoring_enabled") !== -1, ".personalization-container { opacity: 0 !important }", 3000);
+  </script>
+  <script src="datalayer.js" defer></script>
   <script src="https://assets.adobedtm.com/e72b4113c11a/70b959d900ec/launch-e7c51a2e3374-development.min.js" async></script>
- <!-- <script src="https://assets.adobedtm.com/e72b4113c11a/c3643f7dc7d4/launch-458a84774e13-development.min.js" async></script>-->
+  <!-- <script src="https://assets.adobedtm.com/e72b4113c11a/c3643f7dc7d4/launch-458a84774e13-development.min.js" async></script>-->
 </head>
-  
-<nav>
-  <button onclick="show('Home Page')">Home</button>
-  <button onclick="show('About Page')">About</button>
-</nav>
-  
- <div class="heroo">
-        <h1>Welcome to Picasoo & Threads</h1>
-        <p>Handmade & Printed Art that tells your story</p>
-  </div>
-  
-<div id="app"></div>
 
-<script>
-function show(text) {
-  document.getElementById('app').innerHTML = `<h2>${text}</h2>`;
-}
+<body>
 
-show('Home Page');
-</script>
+  <!-- ============ SITE HEADER / NAV ============ -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a href="#home" class="logo" data-route="home" aria-label="Picasoo & Threads home">
+        <svg class="logo-mark" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="17" cy="17" r="16" stroke="currentColor" stroke-width="1.2" stroke-dasharray="3 4"/>
+          <path d="M9 20c3-6 5-9 8-9s3 5 6 5 3-3 3-6" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+          <circle cx="9" cy="20" r="1.4" fill="currentColor"/>
+        </svg>
+        <span class="logo-text">Picasoo <em>&amp;</em> Threads</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <button class="nav-link" data-route="home">Home</button>
+        <button class="nav-link" data-route="about">About</button>
+        <button class="nav-link" data-route="gallery">Gallery</button>
+        <button class="nav-link" data-route="process">Process</button>
+        <button class="nav-link" data-route="contact">Contact</button>
+      </nav>
+
+      <div class="header-actions">
+        <button class="btn btn-outline nav-cta" data-route="contact">Commission a piece</button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- mobile nav -->
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+      <button class="nav-link" data-route="home">Home</button>
+      <button class="nav-link" data-route="about">About</button>
+      <button class="nav-link" data-route="gallery">Gallery</button>
+      <button class="nav-link" data-route="process">Process</button>
+      <button class="nav-link" data-route="contact">Contact</button>
+    </nav>
+  </header>
+
+  <!-- ============ APP ROOT (SPA VIEWS MOUNT HERE) ============ -->
+  <main id="app">
+
+    <!-- ============ HOME VIEW ============ -->
+    <section class="view" id="view-home" data-view="home">
+
+      <div class="hero">
+        <svg class="thread-svg hero-thread" viewBox="0 0 1200 100" preserveAspectRatio="none" aria-hidden="true">
+          <path class="stitch-path" d="M0 60 C 150 10, 300 100, 450 55 S 750 5, 900 60 S 1100 90, 1200 45" />
+        </svg>
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <p class="eyebrow">Est. in a one-room studio &mdash; still hand-stitched</p>
+            <h1 class="heroo-heading">Welcome to <span class="ital">Picasoo</span> &amp; Threads</h1>
+            <p class="hero-sub">Handmade &amp; printed art that tells your story &mdash; painted, stitched, and pulled thread by thread until it's unmistakably yours.</p>
+            <div class="hero-actions">
+              <button class="btn btn-primary" data-route="gallery">Browse the gallery</button>
+              <button class="btn btn-ghost" data-route="process">See how it's made</button>
+            </div>
+            <div class="hero-stats">
+              <div><span class="stat-num">7</span><span class="stat-label">years stitching</span></div>
+              <div><span class="stat-num">1,200+</span><span class="stat-label">pieces shipped</span></div>
+              <div><span class="stat-num">100%</span><span class="stat-label">hand-finished</span></div>
+            </div>
+          </div>
+          <div class="hero-visual" aria-hidden="true">
+            <div class="canvas-frame">
+              <div class="canvas-inner">
+                <svg viewBox="0 0 300 360" width="100%" height="100%">
+                  <rect x="0" y="0" width="300" height="360" fill="var(--paper)"/>
+                  <path d="M20 260 Q 90 150 150 220 T 280 160" stroke="var(--thread-crimson)" stroke-width="2.5" fill="none" stroke-dasharray="6 6"/>
+                  <path d="M10 300 Q 100 220 160 290 T 290 240" stroke="var(--thread-teal)" stroke-width="2.5" fill="none" stroke-dasharray="6 6"/>
+                  <circle cx="150" cy="120" r="55" fill="none" stroke="var(--thread-gold)" stroke-width="2.5" stroke-dasharray="4 5"/>
+                  <circle cx="150" cy="120" r="30" fill="var(--thread-gold)" opacity="0.15"/>
+                </svg>
+              </div>
+              <span class="frame-tag">Original, No. 042</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="section collections">
+        <div class="section-head">
+          <p class="eyebrow">Three ways we work</p>
+          <h2>Every piece starts as a thread of an idea</h2>
+        </div>
+        <div class="collection-grid">
+          <article class="collection-card">
+            <div class="card-thumb thumb-portrait" aria-hidden="true"></div>
+            <h3>Hand Portraits</h3>
+            <p>Oil and gouache portraits worked from your photos, reference calls, or a single memory you describe to us.</p>
+            <button class="text-link" data-route="gallery">View portraits &rarr;</button>
+          </article>
+          <article class="collection-card">
+            <div class="card-thumb thumb-textile" aria-hidden="true"></div>
+            <h3>Textile & Thread Work</h3>
+            <p>Embroidery, appliqué, and woven pieces built up in layers of dyed thread on raw linen and canvas.</p>
+            <button class="text-link" data-route="gallery">View textile art &rarr;</button>
+          </article>
+          <article class="collection-card">
+            <div class="card-thumb thumb-print" aria-hidden="true"></div>
+            <h3>Fine-Art Prints</h3>
+            <p>Archival giclée reproductions of the studio's originals, numbered and hand-signed in small runs.</p>
+            <button class="text-link" data-route="gallery">View prints &rarr;</button>
+          </article>
+        </div>
+      </section>
+
+      <section class="section testimonial-band">
+        <svg class="thread-svg" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true">
+          <path class="stitch-path" d="M0 30 C 200 -5, 400 65, 600 30 S 1000 -5, 1200 30" />
+        </svg>
+        <blockquote>
+          <p>&ldquo;They stitched my grandmother's handwriting into the border. It's the only artwork in our house nobody walks past without stopping.&rdquo;</p>
+          <cite>&mdash; Reva K., commissioned a memory portrait</cite>
+        </blockquote>
+      </section>
+
+      <section class="section cta-band">
+        <div class="cta-inner">
+          <h2>Have a story that needs a canvas?</h2>
+          <p>Tell us about the piece you're picturing and we'll sketch out a plan &mdash; medium, timeline, and price &mdash; before a single thread is pulled.</p>
+          <button class="btn btn-primary" data-route="contact">Start a commission</button>
+        </div>
+      </section>
+
+    </section>
+
+    <!-- ============ ABOUT VIEW ============ -->
+    <section class="view" id="view-about" data-view="about" hidden>
+      <div class="page-hero">
+        <p class="eyebrow">About the studio</p>
+        <h1>Made by hand, on purpose</h1>
+        <p class="page-hero-sub">Picasoo &amp; Threads is a two-person studio proving that "handmade" can still mean something in a world of print-on-demand.</p>
+      </div>
+
+      <section class="section about-story">
+        <div class="story-grid">
+          <div class="story-visual" aria-hidden="true">
+            <svg viewBox="0 0 320 320" width="100%" height="100%">
+              <rect width="320" height="320" fill="var(--paper)"/>
+              <path d="M30 60 Q 160 20 290 60" stroke="var(--thread-crimson)" stroke-width="2" fill="none" stroke-dasharray="5 6"/>
+              <path d="M30 160 Q 160 260 290 160" stroke="var(--thread-teal)" stroke-width="2" fill="none" stroke-dasharray="5 6"/>
+              <path d="M30 260 Q 160 200 290 260" stroke="var(--thread-gold)" stroke-width="2" fill="none" stroke-dasharray="5 6"/>
+              <circle cx="160" cy="160" r="70" fill="none" stroke="var(--ink)" stroke-width="1.2"/>
+            </svg>
+          </div>
+          <div class="story-copy">
+            <p class="eyebrow">How we started</p>
+            <h2>A sketchbook, a sewing box, and one stubborn idea</h2>
+            <p>Picasoo &amp; Threads began in 2018 as two disciplines sharing one studio table: painting and embroidery. Neither felt complete alone &mdash; paint couldn't hold texture the way thread could, and thread alone couldn't hold a likeness. So we combined them.</p>
+            <p>Today every commission still passes through both hands before it ships: one for the underpainting, one for the stitching that gives it depth you can feel with your fingertips.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section values">
+        <div class="section-head">
+          <p class="eyebrow">What we hold to</p>
+          <h2>Three rules we don't break</h2>
+        </div>
+        <div class="values-grid">
+          <div class="value-card">
+            <h3>No two pieces alike</h3>
+            <p>We don't run production batches. Every commission is drafted, approved, and made once &mdash; for the person who asked for it.</p>
+          </div>
+          <div class="value-card">
+            <h3>Materials that last decades</h3>
+            <p>Archival canvas, lightfast pigment, and thread rated for fifty years without fading indoors.</p>
+          </div>
+          <div class="value-card">
+            <h3>You see it before it's final</h3>
+            <p>Every commission gets a sketch review and a progress photo before we move to finishing.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section team">
+        <div class="section-head">
+          <p class="eyebrow">Who's stitching</p>
+          <h2>The two hands behind the studio</h2>
+        </div>
+        <div class="team-grid">
+          <div class="team-card">
+            <div class="team-avatar" aria-hidden="true"></div>
+            <h3>Meera Rao</h3>
+            <p class="team-role">Painter &amp; Founder</p>
+            <p>Trained in oil portraiture; leads every commission's underpainting and color plan.</p>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar avatar-alt" aria-hidden="true"></div>
+            <h3>Iven Costa</h3>
+            <p class="team-role">Textile Artist &amp; Co-founder</p>
+            <p>Hand-dyes thread in-house and builds the embroidery and appliqué layers.</p>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- ============ GALLERY VIEW ============ -->
+    <section class="view" id="view-gallery" data-view="gallery" hidden>
+      <div class="page-hero">
+        <p class="eyebrow">The gallery</p>
+        <h1>Browse the collection</h1>
+        <p class="page-hero-sub">A running archive of studio originals and print editions. Filter by medium to find your fit.</p>
+      </div>
+
+      <div class="section gallery-section">
+        <div class="filter-bar" role="tablist" aria-label="Filter gallery by category">
+          <button class="filter-btn is-active" data-filter="all" role="tab" aria-selected="true">All work</button>
+          <button class="filter-btn" data-filter="portrait" role="tab" aria-selected="false">Portraits</button>
+          <button class="filter-btn" data-filter="textile" role="tab" aria-selected="false">Textile</button>
+          <button class="filter-btn" data-filter="print" role="tab" aria-selected="false">Prints</button>
+        </div>
+
+        <div class="gallery-grid" id="galleryGrid">
+          <!-- gallery cards injected by script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROCESS VIEW ============ -->
+    <section class="view" id="view-process" data-view="process" hidden>
+      <div class="page-hero">
+        <p class="eyebrow">From sketch to shipment</p>
+        <h1>How a piece gets made</h1>
+        <p class="page-hero-sub">Every commission follows the same five-stage path, start to finish, usually four to six weeks.</p>
+      </div>
+
+      <section class="section process-timeline">
+        <svg class="thread-svg timeline-thread" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true">
+          <path class="stitch-path" d="M0 20 L 1200 20" />
+        </svg>
+        <ol class="timeline-list">
+          <li class="timeline-step">
+            <span class="step-mark">Stage 1</span>
+            <h3>Conversation</h3>
+            <p>A call or written brief: your photos, your story, the mood you want on the wall.</p>
+          </li>
+          <li class="timeline-step">
+            <span class="step-mark">Stage 2</span>
+            <h3>Sketch &amp; plan</h3>
+            <p>A graphite sketch and a materials plan &mdash; canvas size, thread palette, timeline, price.</p>
+          </li>
+          <li class="timeline-step">
+            <span class="step-mark">Stage 3</span>
+            <h3>Underpainting</h3>
+            <p>Meera blocks in color and light in oil or gouache; you'll see a progress photo here.</p>
+          </li>
+          <li class="timeline-step">
+            <span class="step-mark">Stage 4</span>
+            <h3>Threadwork</h3>
+            <p>Iven hand-dyes thread to match, then stitches texture, detail, and depth into the piece.</p>
+          </li>
+          <li class="timeline-step">
+            <span class="step-mark">Stage 5</span>
+            <h3>Finish &amp; ship</h3>
+            <p>Varnish or steam-finish, frame if requested, and ship in a padded, trackable crate.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="section faq">
+        <div class="section-head">
+          <p class="eyebrow">Common questions</p>
+          <h2>Before you commission</h2>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>How long does a commission take?</summary>
+            <p>Most pieces take four to six weeks from approved sketch to shipment, depending on size and stitch density.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Can I request revisions to the sketch?</summary>
+            <p>Yes &mdash; sketch review is included, and we won't move to painting until you approve it.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Do you ship internationally?</summary>
+            <p>We do. International pieces ship in padded crates with tracked, insured freight.</p>
+          </details>
+          <details class="faq-item">
+            <summary>What sizes are available?</summary>
+            <p>From 12"&times;12" studies up to 40"&times;60" statement pieces; talk to us about anything larger.</p>
+          </details>
+        </div>
+      </section>
+    </section>
+
+    <!-- ============ CONTACT VIEW ============ -->
+    <section class="view" id="view-contact" data-view="contact" hidden>
+      <div class="page-hero">
+        <p class="eyebrow">Let's talk</p>
+        <h1>Start a commission</h1>
+        <p class="page-hero-sub">Tell us what you're picturing. We reply within two business days with a plan and a quote.</p>
+      </div>
+
+      <section class="section contact-section">
+        <div class="contact-grid">
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="form-row">
+              <label for="cf-name">Name</label>
+              <input type="text" id="cf-name" name="name" required autocomplete="name">
+            </div>
+            <div class="form-row">
+              <label for="cf-email">Email</label>
+              <input type="email" id="cf-email" name="email" required autocomplete="email">
+            </div>
+            <div class="form-row">
+              <label for="cf-medium">Interested in</label>
+              <select id="cf-medium" name="medium">
+                <option value="portrait">Hand portrait</option>
+                <option value="textile">Textile & thread work</option>
+                <option value="print">Fine-art print</option>
+                <option value="unsure">Not sure yet</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label for="cf-message">Tell us about the piece</label>
+              <textarea id="cf-message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send inquiry</button>
+            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          </form>
+
+          <aside class="contact-info">
+            <div class="info-block">
+              <h3>Studio</h3>
+              <p>Picasoo &amp; Threads<br>14 Millbrook Lane<br>Portland, OR 97202</p>
+            </div>
+            <div class="info-block">
+              <h3>Hours</h3>
+              <p>Tue&ndash;Sat, 10am&ndash;5pm PT<br>Studio visits by appointment</p>
+            </div>
+            <div class="info-block">
+              <h3>Reach us</h3>
+              <p><a href="mailto:hello@picasoothreads.example">hello@picasoothreads.example</a><br>(503) 555-0148</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <svg class="thread-svg footer-thread" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true">
+      <path class="stitch-path" d="M0 20 C 300 -10, 600 50, 900 20 S 1100 -5, 1200 20" />
+    </svg>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo-text">Picasoo <em>&amp;</em> Threads</span>
+        <p>Handmade &amp; printed art, stitched in Portland, Oregon.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <button class="nav-link" data-route="home">Home</button>
+        <button class="nav-link" data-route="about">About</button>
+        <button class="nav-link" data-route="gallery">Gallery</button>
+        <button class="nav-link" data-route="process">Process</button>
+        <button class="nav-link" data-route="contact">Contact</button>
+      </nav>
+      <p class="footer-legal">&copy; <span id="year"></span> Picasoo &amp; Threads. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
