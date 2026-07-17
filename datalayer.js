@@ -8,7 +8,8 @@ window.digitalData = {
     referringURL: document.referrer,   // Previous page URL
     language: "en-US",
     siteSection: "homepage",           // Top-level section/category of site
-    breadcrumb: "Home"
+    breadcrumb: "Home",
+    error: "502"
   },
  
   // ---------- USER INFO ----------
