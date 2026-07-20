@@ -15,7 +15,7 @@ window.digitalData = {
   // ---------- USER INFO ----------
   user: {
     loginStatus: "logged out",         // "logged in" / "logged out"
-    userID: "",                        // Populate only if logged in (hashed/anonymized ID, not PII)
+    id: "",                        // Populate only if logged in (hashed/anonymized ID, not PII)
     userType: "guest",                 // guest, member, subscriber, etc.
     membershipTier: ""                 // e.g. "gold", "free" — if applicable
   },
