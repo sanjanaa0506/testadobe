@@ -4,7 +4,7 @@ window.digitalData = {
   page: {
     pageName: "homepage",              // Unique, readable page name
     pageType: "home",                  // e.g. home, category, product, cart, checkout
-    pageURL: window.location.href,     // Full URL of the current page
+    //pageURL: window.location.href,     // Full URL of the current page
     referringURL: document.referrer,   // Previous page URL
     language: "en-US",
     siteSection: "homepage",           // Top-level section/category of site
