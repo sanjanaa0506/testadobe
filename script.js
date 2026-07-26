@@ -166,7 +166,7 @@
   /* ---------------------------------------------------------
      CONTACT FORM
   --------------------------------------------------------- */
-  var contactForm = document.getElementById('contactForm');
+ /* var contactForm = document.getElementById('contactForm');
   var formStatus = document.getElementById('formStatus');
 
   if (contactForm) {
@@ -199,7 +199,108 @@
       contactForm.reset();
     });
   }
+*/
 
+  var contactForm = document.getElementById('contactForm');
+var formStatus = document.getElementById('formStatus');
+
+if (contactForm) {
+
+  /* =======================================================================
+     FIELD-LEVEL ENGAGEMENT TRACKING (new)
+     Attaches focus/blur listeners to every field in the form. Tracks how
+     long a visitor spends in each field and whether they left it filled in
+     or empty. Sends directly via alloy("sendEvent") — no dependency on any
+     data-layer helper function.
+     ======================================================================= */
+  window._fieldFocusTs = window._fieldFocusTs || {};
+
+  var trackableFields = contactForm.querySelectorAll('input[name], select[name], textarea[name]');
+
+  trackableFields.forEach(function (field) {
+    field.addEventListener('focus', function (e) {
+      window._fieldFocusTs[e.target.name] = Date.now();
+    });
+
+    field.addEventListener('blur', function (e) {
+      var fieldName = e.target.name; // "name" | "email" | "medium" | "message"
+      var startTs = window._fieldFocusTs[fieldName] || Date.now();
+      var timeSpent = Date.now() - startTs;
+      var value = e.target.value;
+      var isEmpty = !value || value.trim() === '';
+
+      // Only fieldName + completionStatus + timing are sent — never the
+      // actual typed value (name, email, or message text never leave the
+      // browser in this payload).
+      if (typeof window.alloy === 'function') {
+        window.alloy('sendEvent', {
+          xdm: {
+            eventType: 'web.formFilledOut',
+            _accenture_partner: {
+              formId: 'contactForm',
+              fieldName: fieldName,
+              timeOnFieldMs: timeSpent,
+              completionStatus: isEmpty ? 'abandoned' : 'completed'
+            }
+          }
+        });
+      }
+    });
+  });
+
+  /* =======================================================================
+     EXISTING SUBMIT HANDLER (unchanged logic, tracking call added at the
+     success point only — validation/error paths are untouched)
+     ======================================================================= */
+  contactForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = contactForm.querySelector('#cf-name');
+    var email = contactForm.querySelector('#cf-email');
+    var message = contactForm.querySelector('#cf-message');
+
+    if (!name.value.trim() || !email.value.trim() || !message.value.trim()) {
+      formStatus.textContent = 'Please fill in your name, email, and a short message.';
+      formStatus.classList.add('is-error');
+      return;
+    }
+
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email.value.trim())) {
+      formStatus.textContent = 'That email address doesn\'t look right — mind checking it?';
+      formStatus.classList.add('is-error');
+      return;
+    }
+
+    formStatus.classList.remove('is-error');
+    formStatus.textContent = 'Thanks, ' + name.value.trim().split(' ')[0] + ' — we\'ll reply within two business days.';
+
+    // Existing call — left as-is
+    if (typeof window.trackEvent === 'function') {
+      window.trackEvent('contact_form_submit', { medium: contactForm.querySelector('#cf-medium').value });
+    }
+
+    // New — fires the XDM form-completion event directly via alloy
+    if (typeof window.alloy === 'function') {
+      window.alloy('sendEvent', {
+        xdm: {
+          eventType: 'web.formSubmission',
+          _accenture_partner: {
+            formId: 'contactForm',
+            completionStatus: 'completed'
+          }
+        }
+      });
+    }
+
+    contactForm.reset();
+  });
+}
+
+
+
+
+
+  
   /* ---------------------------------------------------------
      STITCH-LINE REVEAL (signature motif)
   --------------------------------------------------------- */
