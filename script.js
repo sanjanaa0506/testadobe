@@ -166,7 +166,7 @@
   /* ---------------------------------------------------------
      CONTACT FORM
   --------------------------------------------------------- */
- /* var contactForm = document.getElementById('contactForm');
+ var contactForm = document.getElementById('contactForm');
   var formStatus = document.getElementById('formStatus');
 
   if (contactForm) {
@@ -199,8 +199,8 @@
       contactForm.reset();
     });
   }
-*/
 
+/*
   var contactForm = document.getElementById('contactForm');
 var formStatus = document.getElementById('formStatus');
 
@@ -213,6 +213,7 @@ if (contactForm) {
      or empty. Sends directly via alloy("sendEvent") — no dependency on any
      data-layer helper function.
      ======================================================================= */
+  /*
   window._fieldFocusTs = window._fieldFocusTs || {};
 
   var trackableFields = contactForm.querySelectorAll('input[name], select[name], textarea[name]');
@@ -252,6 +253,7 @@ if (contactForm) {
      EXISTING SUBMIT HANDLER (unchanged logic, tracking call added at the
      success point only — validation/error paths are untouched)
      ======================================================================= */
+  /*
   contactForm.addEventListener('submit', function (e) {
     e.preventDefault();
     var name = contactForm.querySelector('#cf-name');
@@ -296,7 +298,7 @@ if (contactForm) {
   });
 }
 
-
+*/
 
 
 
